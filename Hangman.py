@@ -5,12 +5,15 @@ import word_list
 word = random.choice(word_list.words)
 life = 5
 list = ["_"]*len(word)
-print("Welcome\nGuess The Word")
+print("Guess The Word\n")
 print(" ".join(list)) 
 
 while(True):
-    n = input("Enter Your Choice: ").lower() 
+    n = input("\n\nEnter Your Choice: ").lower() 
     c = 0
+    
+    if(n in list):
+        print(f"\nYou have already guess the letter {n}")
     
     for i in range(len(word)):
         if word[i] == n:
@@ -24,11 +27,11 @@ while(True):
     print(" ".join(list))
     
     if(life == 0):
-        print(f"Game Over! You loose!!\nThe word was {word}")
+        print(f"\nGame Over! You loose!!\nThe word was {word}")
         break
     
     elif("_" not in list):
-        print("Congratulations!!!\nYou Won!!!")
+        print("\nCongratulations!!!\nYou Won!!!")
         break
     
-    print(f"You have {life} lives")
+    print(f"\nYou have {life} lives")
